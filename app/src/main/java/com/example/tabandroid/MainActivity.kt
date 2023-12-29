@@ -94,6 +94,20 @@ override fun onCreate(savedInstanceState: Bundle?) {
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = ImageAdapter(this, images)
     }
+//    public fun setUpRecyclerView_second() {
+//        val images = listOf<Image>(
+//            Image("Images 1", R.drawable.img1),
+//            Image("Images 2", R.drawable.img2),
+//            Image("Images 3", R.drawable.img3),
+//            Image("Images 4", R.drawable.img4),
+//            Image("Images 5", R.drawable.img5)
+//        )
+//
+//        val recyclerView = findViewById<RecyclerView>(R.id.imagesRecyclerView)
+//        recyclerView.layoutManager = LinearLayoutManager(this)
+//        recyclerView.setHasFixedSize(true)
+//        recyclerView.adapter = ImageAdapter(this, images)
+//    }
 
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {
 //        // Inflate the menu; this adds items to the action bar if it is present.
