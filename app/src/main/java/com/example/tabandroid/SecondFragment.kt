@@ -58,9 +58,9 @@ class SecondFragment : Fragment() {
 //        }
 //        view.findViewById<TextView>(R.id.textview_random).text = randomNumber.toString()
 //
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
+//        binding.buttonSecond.setOnClickListener {
+//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+//        }
     }
 
     override fun onDestroyView() {

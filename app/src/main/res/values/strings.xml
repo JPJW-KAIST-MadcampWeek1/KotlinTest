@@ -12,4 +12,6 @@
     <string name="toast_button_text">Toast</string>
     <string name="count_button_text">Count</string>
     <string name="textview">R</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
