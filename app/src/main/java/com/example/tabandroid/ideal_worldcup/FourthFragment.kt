@@ -12,17 +12,13 @@ import com.example.tabandroid.R
 
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FourthFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class FourthFragment : Fragment() {
 
     private lateinit var binding: FragmentFourthBinding
     private var candidates = mutableListOf<ProgrammingLanguage>()
     private var currentRound = 1
-    private lateinit var roundCandidates: List<ProgrammingLanguage>
+    private  lateinit var roundCandidates: List<ProgrammingLanguage>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,7 +52,7 @@ class FourthFragment : Fragment() {
 
     private fun setupRound() {
         // Based on currentRound, decide how to pick candidates
-        val roundCandidates = when (currentRound) {
+        roundCandidates = when (currentRound) {
             1 -> candidates.shuffled().take(2)  // Quarterfinals
             2 -> candidates.filter { it.rank >= 1 }.shuffled().take(2)  // Semifinals
             3 -> candidates.filter { it.rank >= 2 }.shuffled().take(2)  // Finals
@@ -78,6 +74,9 @@ class FourthFragment : Fragment() {
     }
 
     private fun selectCandidate(selectedCandidate: ProgrammingLanguage) {
+        if (!::roundCandidates.isInitialized) {
+            setupRound()
+        }
         // Increase rank
         selectedCandidate.rank += 1
 
@@ -111,7 +110,4 @@ class FourthFragment : Fragment() {
             }
             .start()
     }
-
-
-
-}
+    }
