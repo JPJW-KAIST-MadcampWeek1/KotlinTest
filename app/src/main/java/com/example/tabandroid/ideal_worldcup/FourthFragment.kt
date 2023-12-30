@@ -163,13 +163,19 @@ class FourthFragment : Fragment() {
         // Check if we have selected enough candidates for this round
 //        if (candidates.count { it.rank == currentRound } >= 2) {
 //            currentRound++
-        if (candidates.size <= 2) {
+        if (candidates.count { it.rank == 1 } == 4) {
             // If there are two or less candidates left, it means we're done with this round
-            currentRound++
-            candidates.forEach { it.rank = currentRound } // Prepare all remaining candidates for the next round
+            currentRound = 2
+//            candidates.forEach { it.rank = currentRound } // Prepare all remaining candidates for the next round
         }
 
+
         //여기가 좀 이상한데 currentRound는 지금이 몇강인지 알려주는건데
+        if (candidates.count { it.rank == 2 } == 2) {
+            // If there are two or less candidates left, it means we're done with this round
+            currentRound = 3
+//            candidates.forEach { it.rank = currentRound } // Prepare all remaining candidates for the next round
+        }
 
         // Setup the next round of selection
 //        setupRound()
