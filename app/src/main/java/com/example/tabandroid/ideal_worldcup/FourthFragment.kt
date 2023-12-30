@@ -9,6 +9,7 @@ import android.widget.ImageView
 //import androidx.navigation.fragment.findNavController
 import com.example.tabandroid.databinding.FragmentFourthBinding
 import com.example.tabandroid.R
+import kotlinx.coroutines.*
 
 
 
@@ -32,6 +33,9 @@ class FourthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeCandidates()
+        CoroutineScope(Dispatchers.Main).launch {
+            setupRound()
+        }
         setupRound()
     }
 
@@ -60,7 +64,7 @@ class FourthFragment : Fragment() {
         }
 
         // Update the UI with the candidates for the current round
-        // This is an example for the first two candidates
+        // This is an example for the first two candida
         with(binding) {
             imageViewFirstCandidate.setImageResource(roundCandidates[0].imageResId)
             textViewFirstCandidate.text = roundCandidates[0].name
@@ -70,6 +74,12 @@ class FourthFragment : Fragment() {
             // Set click listeners for the images
             imageViewFirstCandidate.setOnClickListener { selectCandidate(roundCandidates[0]) }
             imageViewSecondCandidate.setOnClickListener { selectCandidate(roundCandidates[1]) }
+        }
+        if (currentRound == 3) {
+            val winner = candidates.maxByOrNull { it.rank }
+            winner?.let {
+//                showWinner(it)
+            }
         }
     }
 
@@ -97,7 +107,12 @@ class FourthFragment : Fragment() {
         }
 
         // Setup the next round of selection
-        setupRound()
+//        setupRound()
+        roundCandidates.filter { it != selectedCandidate }.forEach { candidates.remove(it) }
+
+        CoroutineScope(Dispatchers.Main).launch {
+            setupRound() // Setup the next round with delay for animations to complete
+        }
     }
 
     private fun animateSelection(view: ImageView, isSelected: Boolean) {
@@ -105,9 +120,25 @@ class FourthFragment : Fragment() {
             .scaleX(if (isSelected) 1.2f else 0f)
             .scaleY(if (isSelected) 1.2f else 0f)
             .setDuration(500)
-            .withEndAction {
-                if (!isSelected) view.visibility = View.GONE
-            }
+//            .withEndAction {
+//                if (!isSelected) view.visibility = View.GONE
+//            }
             .start()
     }
+
+//    private fun showWinner(winner: ProgrammingLanguage) {
+//        with(binding) {
+//            // Assuming you have winnerImageView and winnerTextView in your layout
+//            winnerImageView.setImageResource(winner.imageResId)
+//            winnerTextView.text = getString(R.string.winner_label, winner.name)
+//
+//            // Set visibility of the winner views to VISIBLE and others to GONE
+//            winnerImageView.visibility = View.VISIBLE
+//            winnerTextView.visibility = View.VISIBLE
+//            imageViewFirstCandidate.visibility = View.GONE
+//            imageViewSecondCandidate.visibility = View.GONE
+//            textViewFirstCandidate.visibility = View.GONE
+//            textViewSecondCandidate.visibility = View.GONE
+//        }
+//    }
     }
