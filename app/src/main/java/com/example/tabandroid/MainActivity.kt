@@ -1,5 +1,6 @@
 package com.example.tabandroid
 
+import android.graphics.Color
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var bottomNav : BottomNavigationView
 
+//    private val questions = arrayOf("What team does Shohei Ohtani play for?",
+//        "What is Jaewon's MBTI?", "What is Jinsuk's dream car?")
+//
+//    private val options = arrayOf(arrayOf("New York Yankees", "Los Angeles Angels", "Los Angeles Dodgers"),
+//        arrayOf("ENTP", "ESFP", "ENFP"), arrayOf("Genesis G90", "BMW i7", "Porsche Taycan"))
+//
+//    private val correctAnswers = arrayOf(2, 1, 2)
+//
+//    private var currentQuestionIndex = 0
+//    private var score = 0
+
+
 
     //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
@@ -46,7 +59,10 @@ class MainActivity : AppCompatActivity() {
 //    }
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+//    setContentView(R.layout.activity_main)
+    binding = ActivityMainBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+
 
 
     loadFragment(SecondFragment())
@@ -94,6 +110,12 @@ override fun onCreate(savedInstanceState: Bundle?) {
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = ImageAdapter(this, images)
     }
+
+//    private fun correctButtonColors(buttonIndex: Int) {
+//        when(buttonIndex) {
+//            0 -> binding.FirstButton.setBackgroundColor(Color.GRAY)
+//        }
+//    }
 //    public fun setUpRecyclerView_second() {
 //        val images = listOf<Image>(
 //            Image("Images 1", R.drawable.img1),
