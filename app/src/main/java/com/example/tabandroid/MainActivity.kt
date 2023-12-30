@@ -2,25 +2,18 @@ package com.example.tabandroid
 
 import android.graphics.Color
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
+
 import com.example.tabandroid.databinding.ActivityMainBinding
-import android.util.Log
-import android.widget.ImageView
-import android.widget.PopupMenu
-import android.widget.Toast
+
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.lang.Exception
-import androidx.recyclerview.widget.LinearLayoutManager
+
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
 
@@ -98,12 +91,16 @@ override fun onCreate(savedInstanceState: Bundle?) {
         transaction.commit()
     }
     public fun setUpRecyclerView() {
+
         val images = listOf<Image>(
-            Image("Images 1", R.drawable.cat1),
-            Image("Images 2", R.drawable.cat2),
-            Image("Images 3", R.drawable.cat3),
-            Image("Images 4", R.drawable.cat4),
+            Image("Images 1", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 2", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 3", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 4", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
         )
+
+
+
 
         val recyclerView = findViewById<RecyclerView>(R.id.imagesRecyclerView)
         val spanCount = 3
