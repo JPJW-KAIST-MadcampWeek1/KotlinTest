@@ -1,5 +1,5 @@
 package com.example.tabandroid
-import androidx.navigation.fragment.navArgs
+//import androidx.navigation.fragment.navArgs
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

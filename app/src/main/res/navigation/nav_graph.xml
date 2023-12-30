@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/fourthFragment"
-        android:name="com.example.tabandroid.FourthFragment"
+        android:name="com.example.tabandroid.ideal_worldcup.FourthFragment"
         android:label="fragment_fourth"
         tools:layout="@layout/fragment_fourth" >
         <action
