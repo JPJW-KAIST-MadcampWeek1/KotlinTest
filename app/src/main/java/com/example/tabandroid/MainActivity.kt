@@ -94,9 +94,26 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
         val images = listOf<Image>(
             Image("Images 1", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 2", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 3", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 4", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 2", "https://img.freepik.com/free-photo/gray-kitty-with-monochrome-wall-her_23-2148955126.jpg?size=626&ext=jpg"),
+            Image("Images 3", "https://img.freepik.com/free-photo/domestic-long-haired-cat-lights-against-black-space_181624-24890.jpg?size=626&ext=jpg"),
+            Image("Images 4", "https://img.freepik.com/free-photo/vertical-closeup-shot-fat-white-cat-looking-right-dark_181624-41107.jpg?size=626&ext=jpg"),
+            Image("Images 5", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 6", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 7", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 8", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 9", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 10", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 11", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 12", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 13", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 14", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 15", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),            Image("Images 4", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 16", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 17", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 18", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 19", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 20", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+
         )
 
 
@@ -104,9 +121,10 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
         val recyclerView = findViewById<RecyclerView>(R.id.imagesRecyclerView)
         val spanCount = 3
+        val verticalSpacing = dpToPx(4) // Reduce the vertical spacing here
         recyclerView.layoutManager = GridLayoutManager(this, spanCount)
         recyclerView.setHasFixedSize(true)
-        recyclerView.addItemDecoration(GridSpacingItemDecoration(spanCount, dpToPx(4), true)) // Adjust the spacing by changing dpToPx value
+        recyclerView.addItemDecoration(GridSpacingItemDecoration(spanCount, verticalSpacing, true)) // Adjust the spacing by changing dpToPx value
         recyclerView.adapter = ImageAdapter(this, images)
     }
 

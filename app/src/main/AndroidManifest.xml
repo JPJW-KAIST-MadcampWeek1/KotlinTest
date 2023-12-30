@@ -22,6 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Add ImageDisplayActivity -->
+        <activity
+            android:name=".ImageDisplayActivity"
+            android:label="Image Display Activity"
+            android:theme="@style/Theme.AppCompat"> <!-- Set a Theme.AppCompat theme -->
+        </activity>
     </application>
 
 </manifest>

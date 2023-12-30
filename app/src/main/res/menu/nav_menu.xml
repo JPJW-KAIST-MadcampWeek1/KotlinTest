@@ -11,5 +11,5 @@
     <item
         android:id="@+id/newyear"
         android:icon="@drawable/ic_baseline_playlist_add_check_24"
-        android:title="New Year" />
+        android:title="Quiz" />
 </menu>
