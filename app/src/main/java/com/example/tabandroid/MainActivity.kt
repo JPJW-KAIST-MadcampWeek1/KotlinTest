@@ -16,6 +16,7 @@ import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.lang.Exception
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -98,17 +99,24 @@ override fun onCreate(savedInstanceState: Bundle?) {
     }
     public fun setUpRecyclerView() {
         val images = listOf<Image>(
-            Image("Images 1", R.drawable.img1),
-            Image("Images 2", R.drawable.img2),
-            Image("Images 3", R.drawable.img3),
-            Image("Images 4", R.drawable.img4),
-            Image("Images 5", R.drawable.img5)
+            Image("Images 1", R.drawable.cat1),
+            Image("Images 2", R.drawable.cat2),
+            Image("Images 3", R.drawable.cat3),
+            Image("Images 4", R.drawable.cat4),
         )
 
         val recyclerView = findViewById<RecyclerView>(R.id.imagesRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        val spanCount = 3
+        recyclerView.layoutManager = GridLayoutManager(this, spanCount)
         recyclerView.setHasFixedSize(true)
+        recyclerView.addItemDecoration(GridSpacingItemDecoration(spanCount, dpToPx(4), true)) // Adjust the spacing by changing dpToPx value
         recyclerView.adapter = ImageAdapter(this, images)
+    }
+
+    // Helper function to convert dp to pixels
+    private fun dpToPx(dp: Int): Int {
+        val density = resources.displayMetrics.density
+        return (dp * density).toInt()
     }
 
 //    private fun correctButtonColors(buttonIndex: Int) {
