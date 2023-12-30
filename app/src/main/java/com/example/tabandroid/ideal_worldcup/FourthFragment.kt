@@ -61,30 +61,74 @@ class FourthFragment : Fragment() {
             3 -> candidates.filter { it.rank == 2 }.shuffled().take(2)  // Finals
             else -> return
         }
+        val roundNameTextView = binding.currentround
+        roundNameTextView.text = when (currentRound) {
+        1 -> "Quarterfinals"
+        2 -> "Semifinals"
+        3 -> "Finals"
+        else -> "Winner"
+        }
 
         // Update the UI with the candidates for the current round
         // This is an example for the first two candida
         with(binding) {
-            // 첫 번째 후보 이미지 뷰
-            imageViewFirstCandidate.apply {
-                setImageResource(roundCandidates[0].imageResId)
-                textViewFirstCandidate.text = roundCandidates[0].name
-                visibility = View.VISIBLE
-                scaleX = 1.0f
-                scaleY = 1.0f
-                setOnClickListener { selectCandidate(roundCandidates[0],roundCandidates[1]) }
+            when {
+                roundCandidates.size >= 2 -> {
+                    // Safe to access the first two candidates
+                    binding.imageViewFirstCandidate.apply {
+                        setImageResource(roundCandidates[0].imageResId)
+                        textViewFirstCandidate.text = roundCandidates[0].name
+                        visibility = View.VISIBLE
+                        scaleX = 1.0f
+                        scaleY = 1.0f
+                        setOnClickListener { selectCandidate(roundCandidates[0], roundCandidates[1]) }
+                    }
+                    binding.imageViewSecondCandidate.apply {
+                        setImageResource(roundCandidates[1].imageResId)
+                        textViewSecondCandidate.text = roundCandidates[1].name
+                        visibility = View.VISIBLE
+                        scaleX = 1.0f
+                        scaleY = 1.0f
+                        setOnClickListener { selectCandidate(roundCandidates[1], roundCandidates[0]) }
+                    }
+                }
+                roundCandidates.isNotEmpty() -> {
+                    // Only one candidate is available
+                    binding.imageViewFirstCandidate.apply {
+                        setImageResource(roundCandidates[0].imageResId)
+                        textViewFirstCandidate.text = roundCandidates[0].name
+                        // Other settings
+                    }
+                    // Handle the case for imageViewSecondCandidate
+                    // For instance, hide it or show a placeholder
+                    binding.imageViewSecondCandidate.visibility = View.INVISIBLE
+                }
+                else -> {
+                    // No candidates available, handle this scenario
+                    // You might want to show a message or take some other action
+                }
             }
 
-            // 두 번째 후보 이미지 뷰
-            imageViewSecondCandidate.apply {
-                setImageResource(roundCandidates[1].imageResId)
-                textViewSecondCandidate.text = roundCandidates[1].name
-                visibility = View.VISIBLE
-                scaleX = 1.0f
-                scaleY = 1.0f
-                setOnClickListener { selectCandidate(roundCandidates[1], roundCandidates[0]) }
-                //버튼 클릭하면 인수인 selectCandidate가 호출됨
-            }
+//            // 첫 번째 후보 이미지 뷰
+//            imageViewFirstCandidate.apply {
+//                setImageResource(roundCandidates[0].imageResId)
+//                textViewFirstCandidate.text = roundCandidates[0].name
+//                visibility = View.VISIBLE
+//                scaleX = 1.0f
+//                scaleY = 1.0f
+//                setOnClickListener { selectCandidate(roundCandidates[0],roundCandidates[1]) }
+//            }
+//
+//            // 두 번째 후보 이미지 뷰
+//            imageViewSecondCandidate.apply {
+//                setImageResource(roundCandidates[1].imageResId)
+//                textViewSecondCandidate.text = roundCandidates[1].name
+//                visibility = View.VISIBLE
+//                scaleX = 1.0f
+//                scaleY = 1.0f
+//                setOnClickListener { selectCandidate(roundCandidates[1], roundCandidates[0]) }
+//                //버튼 클릭하면 인수인 selectCandidate가 호출됨
+//            }
         }
         if (currentRound == 3) {
             val winner = candidates.maxByOrNull { it.rank }
@@ -133,7 +177,7 @@ class FourthFragment : Fragment() {
         // 안뽑은거 지우는거네 //
 
         CoroutineScope(Dispatchers.Main).launch {
-            delay(2000)
+            delay(500)
             setupRound() // Setup the next round with delay for animations to complete
         }
     }
