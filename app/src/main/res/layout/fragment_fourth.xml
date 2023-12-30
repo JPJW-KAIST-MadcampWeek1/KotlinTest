@@ -26,18 +26,18 @@
         />
 
     <TextView
+        android:id="@+id/currentround"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quarterfinals"
-        android:fontFamily="@font/aclonica"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
         android:layout_marginBottom="20dp"
+        android:fontFamily="@font/aclonica"
         android:shadowColor="#000000"
         android:shadowDx="3"
         android:shadowDy="3"
         android:shadowRadius="10"
-        />
+        android:text="Quarterfinals"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
 
     <!-- First grey box with number 1 -->
     <FrameLayout
