@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.fragment.findNavController
+//import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tabandroid.databinding.FragmentSecondBinding
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.FileReader
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -18,7 +21,7 @@ import com.example.tabandroid.databinding.FragmentSecondBinding
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
-
+    private var contactList : ArrayList<Contacts> = arrayListOf()
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -42,7 +45,33 @@ class SecondFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
 
+//        profileList.clear()
+
+        val assets = resources.assets
+        val inputStream = assets.open("contacts.json")
+        val jsonString = inputStream.bufferedReader().use{ it.readText()}
+
+        val jObject = JSONObject(jsonString)
+        val jArray = jObject.getJSONArray("contacts")
+
+
+        for(i in 0 until jArray.length()) {
+            val obj = jArray.getJSONObject(i)
+            val name = obj.getString("name")
+            val number = obj.getString("number")
+            contactList.add(Contacts( name, number))
+        }
+
+        binding.rvContact.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+        binding.rvContact.setHasFixedSize(true)
+        binding.rvContact.adapter = ContactAdapter(contactList)
+        ContactAdapter(contactList).notifyDataSetChanged()
+
+
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,6 +89,9 @@ class SecondFragment : Fragment() {
 //
 //        binding.buttonSecond.setOnClickListener {
 //            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+//        }
+//        if (activity is MainActivity) {
+//            (activity as MainActivity).setUpRecyclerView_second()
 //        }
     }
 
