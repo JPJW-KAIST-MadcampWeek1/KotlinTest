@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import androidx.recyclerview.widget.RecyclerView
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -53,7 +52,6 @@ override fun onCreate(savedInstanceState: Bundle?) {
 //    setContentView(R.layout.activity_main)
     binding = ActivityMainBinding.inflate(layoutInflater)
     setContentView(binding.root)
-
 
 
     loadFragment(SecondFragment())
