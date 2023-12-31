@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Option 1"
             android:textSize="16sp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="8dp" />
 
         <Button
@@ -54,17 +55,42 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+    <ProgressBar
+        android:id="@+id/progress_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="false"
+        android:max="3"
+        android:layout_centerInParent="true"
+        android:progress="0"
+        android:progressDrawable="@drawable/circular_progress" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:enabled="false"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
     <Button
         android:id="@+id/restartButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Restart Quiz"
-        android:backgroundTint="@color/white"
         android:layout_marginTop="35dp"
-        android:textSize="16sp"
+        android:backgroundTint="@color/white"
+        android:enabled="false"
         android:padding="10dp"
+        android:text="Restart Quiz"
         android:textColor="@color/black"
-        android:enabled="false" />
+        android:textSize="16sp" />
 
 </LinearLayout>
 

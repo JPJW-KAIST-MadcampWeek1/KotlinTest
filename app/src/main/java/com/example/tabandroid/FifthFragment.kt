@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import com.example.tabandroid.databinding.FragmentFifthBinding
 //import androidx.navigation.fragment.findNavController
@@ -113,12 +114,15 @@ class FifthFragment : Fragment() {
         binding.ThirdButton.setBackgroundColor(Color.rgb(50,59,96))
     }
 
-    private fun showResults() {
-        Toast.makeText(requireContext(), "Your score: $score out of ${questions.size}", Toast.LENGTH_LONG).show()
-        binding.restartButton.isEnabled = true
-    }
+//    private fun showResults() {
+//        Toast.makeText(requireContext(), "Your score: $score out of ${questions.size}", Toast.LENGTH_LONG).show()
+//        binding.restartButton.isEnabled = true
+//    }
 
     private fun displayQuestions() {
+        binding.resultText.visibility = View.GONE
+        binding.restartButton.visibility = View.GONE
+        binding.progressCircle.visibility = View.GONE
         binding.questionText.text = questions[currentQuestionIndex]
         binding.FirstButton.text = options[currentQuestionIndex][0]
         binding.SecondButton.text = options[currentQuestionIndex][1]
@@ -141,7 +145,10 @@ class FifthFragment : Fragment() {
         if(currentQuestionIndex < questions.size - 1 ){
             currentQuestionIndex++
             binding.questionText.postDelayed({displayQuestions()}, 1000)
-        } else {
+
+        }
+        // Going to else means that we have finished all of our questions
+        else {
             showResults()
         }
 
@@ -150,8 +157,30 @@ class FifthFragment : Fragment() {
     private fun restartQuiz(){
         currentQuestionIndex = 0
         score = 0
+        binding.resultText.visibility = View.GONE
+        binding.progressCircle.visibility = View.GONE
+        binding.FirstButton.visibility = View.VISIBLE
+        binding.SecondButton.visibility = View.VISIBLE
+        binding.ThirdButton.visibility = View.VISIBLE
         displayQuestions()
         binding.restartButton.isEnabled = false
+    }
+
+    private fun showResults() {
+
+        binding.progressCircle.progress = score
+        binding.restartButton.visibility = View.VISIBLE
+        binding.resultText.visibility = View.VISIBLE
+        binding.progressCircle.visibility = View.VISIBLE
+        binding.questionText.text = "Results!"
+        binding.restartButton.isEnabled = true
+        binding.resultText.text = "You are $score out of ${questions.size}"
+        binding.FirstButton.visibility = View.GONE
+        binding.SecondButton.visibility = View.GONE
+        binding.ThirdButton.visibility = View.GONE
+
+        // update the resultView with the result details
+
     }
 
 
