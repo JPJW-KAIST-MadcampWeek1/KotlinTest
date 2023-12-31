@@ -7,18 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.tabandroid.databinding.FragmentFifthBinding
 //import androidx.navigation.fragment.findNavController
-import com.example.tabandroid.databinding.FragmentFourthBinding
 
 
 
 /**
  * A simple [Fragment] subclass.
- * Use the [FourthFragment.newInstance] factory method to
+ * Use the [FifthFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FourthFragment : Fragment() {
-    private var _binding: FragmentFourthBinding? = null
+class FifthFragment : Fragment() {
+    private var _binding: FragmentFifthBinding? = null
 
 
 
@@ -49,7 +49,7 @@ class FourthFragment : Fragment() {
 
 
 
-        _binding = FragmentFourthBinding.inflate(inflater, container, false)
+        _binding = FragmentFifthBinding.inflate(inflater, container, false)
 
         displayQuestions()
 

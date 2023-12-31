@@ -45,9 +45,9 @@
     </fragment>
     <fragment
         android:id="@+id/fourthFragment"
-        android:name="com.example.tabandroid.FourthFragment"
+        android:name="com.example.tabandroid.FifthFragment"
         android:label="fragment_fourth"
-        tools:layout="@layout/fragment_fourth" >
+        tools:layout="@layout/fragment_fifth" >
         <action
             android:id="@+id/action_fourthFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />

@@ -1,6 +1,5 @@
 package com.example.tabandroid
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,10 +9,8 @@ import com.example.tabandroid.databinding.ActivityMainBinding
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.lang.Exception
 
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
 
@@ -74,7 +71,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
                 true
             }
             R.id.newyear -> {
-                loadFragment(FourthFragment())
+                loadFragment(FifthFragment())
                 true
             }
             else -> {
