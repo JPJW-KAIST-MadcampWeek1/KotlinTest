@@ -51,5 +51,12 @@
         <action
             android:id="@+id/action_fourthFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_fourthFragment_to_winnerActivity"
+            app:destination="@id/winnerActivity" />
     </fragment>
+    <activity
+        android:id="@+id/winnerActivity"
+        android:name="com.example.tabandroid.ideal_worldcup.WinnerActivity"
+        android:label="WinnerActivity" />
 </navigation>

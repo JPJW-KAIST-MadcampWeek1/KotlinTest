@@ -23,6 +23,7 @@ class FourthFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentFourthBinding.inflate(inflater, container, false)
@@ -148,7 +149,9 @@ class FourthFragment : Fragment() {
 
         if (candidates.count { it.rank == 1 } == 4) {
             // If there are two or less candidates left, it means we're done with this round
+
             currentRound = 2
+            showCurrentRoundTitle()
 //            candidates.forEach { it.rank = currentRound } // Prepare all remaining candidates for the next round
         }
 
@@ -157,6 +160,7 @@ class FourthFragment : Fragment() {
         if (candidates.count { it.rank == 2 } == 2) {
             // If there are two or less candidates left, it means we're done with this round
             currentRound = 3
+            showCurrentRoundTitle()
 //            candidates.forEach { it.rank = currentRound } // Prepare all remaining candidates for the next round
         }
 
@@ -188,6 +192,44 @@ class FourthFragment : Fragment() {
             putExtra("winnerTextView", winner.name)
         }
         startActivity(intent)
+    }
+
+    private fun showCurrentRoundTitle() {
+        with(binding) {
+            // Increase the text size and make it visible
+            currentround.apply {
+                textSize = 50f // Set a larger text size
+//                visibility = View.VISIBLE
+                alpha = 0f
+                animate().alpha(1f).setDuration(200).start() // Fade in animation
+            }
+
+            // Set all images to GONE to clear the screen
+            imageViewFirstCandidate.visibility = View.INVISIBLE
+            imageViewSecondCandidate.visibility = View.INVISIBLE
+            vsImageView.visibility = View.INVISIBLE
+            firstFrameLayout.visibility = View.INVISIBLE
+            secondFrameLayout.visibility = View.INVISIBLE
+
+            // Assuming you have a view with this ID for the 'vs' ima
+
+            // Delay for 2 seconds before moving to the next round
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(2000)
+                imageViewFirstCandidate.visibility = View.VISIBLE
+                firstFrameLayout.visibility = View.VISIBLE
+                imageViewSecondCandidate.visibility = View.VISIBLE
+                secondFrameLayout.visibility = View.VISIBLE
+                vsImageView.visibility = View.VISIBLE
+                currentround.apply { // Fade out animation
+                    textSize = 18f // Reset the text size
+
+                }
+                currentround.visibility = View.VISIBLE
+                // Once the title has faded out, proceed to set up the next round
+                setupRound()
+            }
+        }
     }
 
 
