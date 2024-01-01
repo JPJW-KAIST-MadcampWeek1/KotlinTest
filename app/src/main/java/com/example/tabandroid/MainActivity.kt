@@ -10,6 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tabandroid.ideal_worldcup.FourthFragment
+import androidx.recyclerview.widget.GridLayoutManager
 
 var token = 0
 class MainActivity : AppCompatActivity() {
@@ -18,9 +19,24 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var bottomNav : BottomNavigationView
 
+//    private val questions = arrayOf("What team does Shohei Ohtani play for?",
+//        "What is Jaewon's MBTI?", "What is Jinsuk's dream car?")
+//
+//    private val options = arrayOf(arrayOf("New York Yankees", "Los Angeles Angels", "Los Angeles Dodgers"),
+//        arrayOf("ENTP", "ESFP", "ENFP"), arrayOf("Genesis G90", "BMW i7", "Porsche Taycan"))
+//
+//    private val correctAnswers = arrayOf(2, 1, 2)
+//
+//    private var currentQuestionIndex = 0
+//    private var score = 0
+
+
 
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+//    setContentView(R.layout.activity_main)
+    binding = ActivityMainBinding.inflate(layoutInflater)
+//    setContentView(binding.root)
     setContentView(R.layout.activity_main)
     token++
 
@@ -52,6 +68,10 @@ override fun onCreate(savedInstanceState: Bundle?) {
                 true
             }
             R.id.newyear -> {
+                loadFragment(FifthFragment())
+                true
+            }
+            R.id.worldcup -> {
                 loadFragment(FourthFragment())
                 true
             }
@@ -69,19 +89,54 @@ override fun onCreate(savedInstanceState: Bundle?) {
         transaction.commit()
     }
     public fun setUpRecyclerView() {
+
         val images = listOf<Image>(
-            Image("Images 1", R.drawable.img1),
-            Image("Images 2", R.drawable.img2),
-            Image("Images 3", R.drawable.img3),
-            Image("Images 4", R.drawable.img4),
-            Image("Images 5", R.drawable.img5)
+            Image("Images 1", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 2", "https://img.freepik.com/free-photo/gray-kitty-with-monochrome-wall-her_23-2148955126.jpg?size=626&ext=jpg"),
+            Image("Images 3", "https://img.freepik.com/free-photo/domestic-long-haired-cat-lights-against-black-space_181624-24890.jpg?size=626&ext=jpg"),
+            Image("Images 4", "https://img.freepik.com/free-photo/vertical-closeup-shot-fat-white-cat-looking-right-dark_181624-41107.jpg?size=626&ext=jpg"),
+            Image("Images 5", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 6", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 7", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 8", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 9", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 10", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 11", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 12", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 13", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 14", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 15", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),            Image("Images 4", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 16", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 17", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 18", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 19", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+            Image("Images 20", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+
         )
 
+
+
+
         val recyclerView = findViewById<RecyclerView>(R.id.imagesRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        val spanCount = 3
+        val verticalSpacing = dpToPx(4) // Reduce the vertical spacing here
+        recyclerView.layoutManager = GridLayoutManager(this, spanCount)
         recyclerView.setHasFixedSize(true)
+        recyclerView.addItemDecoration(GridSpacingItemDecoration(spanCount, verticalSpacing, true)) // Adjust the spacing by changing dpToPx value
         recyclerView.adapter = ImageAdapter(this, images)
     }
+
+    // Helper function to convert dp to pixels
+    private fun dpToPx(dp: Int): Int {
+        val density = resources.displayMetrics.density
+        return (dp * density).toInt()
+    }
+
+//    private fun correctButtonColors(buttonIndex: Int) {
+//        when(buttonIndex) {
+//            0 -> binding.FirstButton.setBackgroundColor(Color.GRAY)
+//        }
+//    }
 //    public fun setUpRecyclerView_second() {
 //        val images = listOf<Image>(
 //            Image("Images 1", R.drawable.img1),

@@ -17,9 +17,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
-        <action
-            android:id="@+id/action_FirstFragment_to_fourthFragment"
-            app:destination="@id/fourthFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_FirstFragment_to_fourthFragment"-->
+<!--            app:destination="@id/fourthFragment" />-->
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -43,6 +43,21 @@
             android:id="@+id/action_thirdFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+
+<!--    <fragment-->
+<!--        android:id="@+id/fourthFragment"-->
+<!--<<<<<<< HEAD-->
+<!--        android:name="com.example.tabandroid.FifthFragment"-->
+<!--=======-->
+<!--        android:name="com.example.tabandroid.ideal_worldcup.FourthFragment"-->
+<!--&gt;>>>>>> feature/jaewon-->
+<!--        android:label="fragment_fourth"-->
+<!--        tools:layout="@layout/fragment_fifth" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_fourthFragment_to_FirstFragment"-->
+<!--            app:destination="@id/FirstFragment" />-->
+<!--    </fragment>-->
+
     <fragment
         android:id="@+id/fourthFragment"
         android:name="com.example.tabandroid.ideal_worldcup.FourthFragment"
@@ -59,4 +74,5 @@
         android:id="@+id/winnerActivity"
         android:name="com.example.tabandroid.ideal_worldcup.WinnerActivity"
         android:label="WinnerActivity" />
+
 </navigation>
