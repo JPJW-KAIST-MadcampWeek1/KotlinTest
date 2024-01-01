@@ -44,7 +44,7 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/aclonica"
         android:gravity="center"
-        android:text="Tap any button below."
+        android:text="Tap any button \nbelow."
         android:textSize="33dp"
         android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
