@@ -8,22 +8,22 @@ android:background="@drawable/background_worldcup">
 
 <!-- Quarterfinals text -->
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
-    android:layout_marginTop="1dp"
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
 
-    android:fontFamily="@font/aclonica"
-    android:shadowColor="#000000"
-    android:shadowDx="3"
-    android:shadowDy="3"
-    android:shadowRadius="10"
-    android:text="Programming Language \nIdeal World Cup\nfeat.AI"
-    android:textColor="#FFFFFF"
-    android:textSize="23sp"
-    android:gravity="center_horizontal"
-    />
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center_horizontal"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="10"
+        android:text="Programming Language \nIdeal World Cup\nfeat.AI"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp" />
 
 <TextView
     android:id="@+id/currentround"
