@@ -9,10 +9,10 @@
         <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/drawable/ic_baseline_playlist_add_check_24.xml" value="0.1965" />
         <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout-v23/item_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/activity_image_display.xml" value="0.23645833333333333" />
-        <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/activity_main.xml" value="0.23125" />
-        <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/activity_splash.xml" value="0.264" />
+        <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/activity_splash.xml" value="0.22807017543859648" />
         <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/content_main.xml" value="0.264" />
-        <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/fragment_fifth.xml" value="0.2" />
+        <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/fragment_fifth.xml" value="0.264" />
         <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/fragment_fourth.xml" value="0.264" />
         <entry key="..\:/Users/jjpar/AndroidStudioProjects/TabAndroid/app/src/main/res/layout/fragment_item.xml" value="0.234375" />
@@ -34,5 +34,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>

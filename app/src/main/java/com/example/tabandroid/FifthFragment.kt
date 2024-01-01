@@ -2,12 +2,14 @@ package com.example.tabandroid
 
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import com.airbnb.lottie.LottieAnimationView
 import com.example.tabandroid.databinding.FragmentFifthBinding
 //import androidx.navigation.fragment.findNavController
 
@@ -52,7 +54,9 @@ class FifthFragment : Fragment() {
 
         _binding = FragmentFifthBinding.inflate(inflater, container, false)
 
-        displayQuestions()
+        displayStart()
+
+        binding.startButton.setOnClickListener { displayQuestions() }
 
         binding.FirstButton.setOnClickListener{
             checkAnswer(0)
@@ -119,10 +123,30 @@ class FifthFragment : Fragment() {
 //        binding.restartButton.isEnabled = true
 //    }
 
-    private fun displayQuestions() {
+    private fun displayStart() {
+
+
+        binding.quizTitle.visibility = View.VISIBLE
+//        binding.codinganim.visibility = View.VISIBLE
+        binding.startButton.visibility = View.VISIBLE
         binding.resultText.visibility = View.GONE
-        binding.restartButton.visibility = View.GONE
         binding.progressCircle.visibility = View.GONE
+        binding.questionText.visibility = View.GONE
+        binding.FirstButton.visibility = View.GONE
+        binding.SecondButton.visibility = View.GONE
+        binding.ThirdButton.visibility = View.GONE
+        binding.restartButton.visibility = View.GONE
+    }
+
+    private fun displayQuestions() {
+        binding.quizTitle.visibility = View.GONE
+//        binding.codinganim.visibility = View.GONE
+        binding.startButton.visibility = View.GONE
+        binding.questionText.visibility = View.VISIBLE
+        binding.FirstButton.visibility = View.VISIBLE
+        binding.SecondButton.visibility = View.VISIBLE
+        binding.ThirdButton.visibility = View.VISIBLE
+        binding.restartButton.visibility = View.GONE
         binding.questionText.text = questions[currentQuestionIndex]
         binding.FirstButton.text = options[currentQuestionIndex][0]
         binding.SecondButton.text = options[currentQuestionIndex][1]
@@ -157,12 +181,13 @@ class FifthFragment : Fragment() {
     private fun restartQuiz(){
         currentQuestionIndex = 0
         score = 0
+
         binding.resultText.visibility = View.GONE
         binding.progressCircle.visibility = View.GONE
-        binding.FirstButton.visibility = View.VISIBLE
-        binding.SecondButton.visibility = View.VISIBLE
-        binding.ThirdButton.visibility = View.VISIBLE
-        displayQuestions()
+//        binding.FirstButton.visibility = View.VISIBLE
+//        binding.SecondButton.visibility = View.VISIBLE
+//        binding.ThirdButton.visibility = View.VISIBLE
+        displayStart()
         binding.restartButton.isEnabled = false
     }
 

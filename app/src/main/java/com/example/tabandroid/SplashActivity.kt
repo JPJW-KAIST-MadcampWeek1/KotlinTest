@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         val lottieAnimationView = findViewById<LottieAnimationView>(R.id.cat_animation)
-        lottieAnimationView.setAnimation("cat.json")
+        lottieAnimationView.setAnimation("codingman.json")
         lottieAnimationView.playAnimation()
 
         Handler().postDelayed({
