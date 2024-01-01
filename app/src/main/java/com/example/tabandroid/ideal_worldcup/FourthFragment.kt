@@ -1,5 +1,6 @@
 package com.example.tabandroid.ideal_worldcup
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +11,6 @@ import android.widget.ImageView
 import com.example.tabandroid.databinding.FragmentFourthBinding
 import com.example.tabandroid.R
 import kotlinx.coroutines.*
-import kotlin.math.round
 
 
 class FourthFragment : Fragment() {
@@ -54,11 +54,19 @@ class FourthFragment : Fragment() {
     }
 
     private fun setupRound() {
+
+        if (currentRound == 4) {
+            val winner = candidates.maxByOrNull { it.rank }
+            winner?.let {
+                showWinner(it)
+            }
+        }
         // Based on currentRound, decide how to pick candidates
         roundCandidates = when (currentRound) {
             1 -> candidates.filter { it.rank == 0 }.shuffled().take(2)  // Quarterfinals
             2 -> candidates.filter { it.rank == 1 }.shuffled().take(2)  // Semifinals
             3 -> candidates.filter { it.rank == 2 }.shuffled().take(2)  // Finals
+            4 -> candidates.filter {it.rank == 3}.take(1)
             else -> return
         }
         val roundNameTextView = binding.currentround
@@ -109,33 +117,9 @@ class FourthFragment : Fragment() {
                 }
             }
 
-//            // 첫 번째 후보 이미지 뷰
-//            imageViewFirstCandidate.apply {
-//                setImageResource(roundCandidates[0].imageResId)
-//                textViewFirstCandidate.text = roundCandidates[0].name
-//                visibility = View.VISIBLE
-//                scaleX = 1.0f
-//                scaleY = 1.0f
-//                setOnClickListener { selectCandidate(roundCandidates[0],roundCandidates[1]) }
-//            }
-//
-//            // 두 번째 후보 이미지 뷰
-//            imageViewSecondCandidate.apply {
-//                setImageResource(roundCandidates[1].imageResId)
-//                textViewSecondCandidate.text = roundCandidates[1].name
-//                visibility = View.VISIBLE
-//                scaleX = 1.0f
-//                scaleY = 1.0f
-//                setOnClickListener { selectCandidate(roundCandidates[1], roundCandidates[0]) }
-//                //버튼 클릭하면 인수인 selectCandidate가 호출됨
-//            }
+
         }
-        if (currentRound == 3) {
-            val winner = candidates.maxByOrNull { it.rank }
-            winner?.let {
-//                showWinner(it)
-            }
-        }
+
     }
 
     private fun selectCandidate(selectedCandidate: ProgrammingLanguage,inselectedCandidate : ProgrammingLanguage) {
@@ -161,8 +145,7 @@ class FourthFragment : Fragment() {
 
 
         // Check if we have selected enough candidates for this round
-//        if (candidates.count { it.rank == currentRound } >= 2) {
-//            currentRound++
+
         if (candidates.count { it.rank == 1 } == 4) {
             // If there are two or less candidates left, it means we're done with this round
             currentRound = 2
@@ -177,6 +160,10 @@ class FourthFragment : Fragment() {
 //            candidates.forEach { it.rank = currentRound } // Prepare all remaining candidates for the next round
         }
 
+        if(candidates.count {it.rank == 3} == 1){
+            currentRound = 4
+        }
+
         // Setup the next round of selection
 //        setupRound()
         roundCandidates.filter { it != selectedCandidate }.forEach { candidates.remove(it) }
@@ -187,6 +174,15 @@ class FourthFragment : Fragment() {
             setupRound() // Setup the next round with delay for animations to complete
         }
     }
+
+    private fun showWinner(winner: ProgrammingLanguage) {
+        val intent = Intent(context, WinnerActivity::class.java).apply {
+            putExtra("winnerImageView", winner.imageResId)
+            putExtra("winnerTextView", winner.name)
+        }
+        startActivity(intent)
+    }
+
 
     private fun animateSelection(view: ImageView, isSelected: Boolean) {
         if (isSelected) {
@@ -205,6 +201,8 @@ class FourthFragment : Fragment() {
 //                if (!isSelected) view.visibility = View.GONE
 //            }
     }
+
+
 
 //    private fun showWinner(winner: ProgrammingLanguage) {
 //        with(binding) {
