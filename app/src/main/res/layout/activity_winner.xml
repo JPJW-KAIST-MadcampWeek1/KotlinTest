@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:shadowColor="#000000"
         android:shadowDx="3"
         android:shadowDy="3"
@@ -26,8 +26,8 @@
         android:textStyle="bold" />
 
     <FrameLayout
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="380dp"
+        android:layout_height="380dp"
         android:layout_marginBottom="20dp"
         android:background="#CCCCCC"
         android:gravity="center">
@@ -57,9 +57,9 @@
     </FrameLayout>
 
     <FrameLayout
-        android:layout_width="300dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="290dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="35dp"
         android:background="#CCCCCC"
         android:gravity="center">
 
