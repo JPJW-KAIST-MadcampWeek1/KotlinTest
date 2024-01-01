@@ -12,7 +12,7 @@ android:background="@drawable/background_worldcup">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
-    android:layout_marginTop="5dp"
+    android:layout_marginTop="1dp"
 
     android:fontFamily="@font/aclonica"
     android:shadowColor="#000000"
@@ -21,7 +21,7 @@ android:background="@drawable/background_worldcup">
     android:shadowRadius="10"
     android:text="Programming Language \nIdeal World Cup\nfeat.AI"
     android:textColor="#FFFFFF"
-    android:textSize="25sp"
+    android:textSize="23sp"
     android:gravity="center_horizontal"
     />
 
@@ -37,81 +37,83 @@ android:background="@drawable/background_worldcup">
     android:shadowRadius="10"
     android:text="Quarterfinals"
     android:textColor="#FFFFFF"
-    android:textSize="14sp" />
+    android:textSize="18sp" />
 
 <!-- First grey box with number 1 -->
-<FrameLayout
-    android:layout_width="200dp"
-    android:layout_height="200dp"
-    android:layout_marginBottom="8dp"
-    android:background="#CCCCCC"
-    android:gravity="center">
+    <FrameLayout
+        android:id="@+id/firstFrameLayout"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginBottom="8dp"
+        android:background="#CCCCCC"
+        android:gravity="center">
 
 
-    <ImageView
+        <ImageView
 
-        android:id="@+id/imageViewFirstCandidate"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/c" />
+            android:id="@+id/imageViewFirstCandidate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/c" />
 
-    <TextView
-        android:id="@+id/textViewFirstCandidate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:fontFamily="@font/aclonica"
-        android:gravity="center"
-        android:shadowColor="#000000"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="10"
-        android:text="C"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp" />
-</FrameLayout>
+        <TextView
+            android:id="@+id/textViewFirstCandidate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="10"
+            android:text="C"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+    </FrameLayout>
 
 <!-- VS text in the middle -->
 <ImageView
     android:id="@+id/vsImageView"
-    android:layout_width="86dp"
-    android:layout_height="75dp"
+    android:layout_width="75dp"
+    android:layout_height="65dp"
     android:layout_marginBottom="8dp"
     android:src="@drawable/vs" />
+
+
 <!-- Second grey box with number 2 -->
-<FrameLayout
-    android:layout_width="200dp"
-    android:layout_height="200dp"
-    android:background="#CCCCCC"
-    android:gravity="center"
-    android:layout_marginBottom="50dp"
-    >
+    <FrameLayout
+        android:id="@+id/secondFrameLayout"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginBottom="50dp"
+        android:background="#CCCCCC"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/imageViewSecondCandidate"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/java" />
+        <ImageView
+            android:id="@+id/imageViewSecondCandidate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/java" />
 
-    <TextView
-        android:id="@+id/textViewSecondCandidate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:fontFamily="@font/aclonica"
-        android:gravity="center"
-        android:shadowColor="#000000"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="10"
-        android:text="Java"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        />
+        <TextView
+            android:id="@+id/textViewSecondCandidate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="10"
+            android:text="Java"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
-</FrameLayout>
+    </FrameLayout>
 
 </LinearLayout>
 

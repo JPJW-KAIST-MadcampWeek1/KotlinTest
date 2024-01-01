@@ -43,6 +43,7 @@
             android:id="@+id/action_thirdFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+
 <!--    <fragment-->
 <!--        android:id="@+id/fourthFragment"-->
 <!--<<<<<<< HEAD-->
@@ -56,4 +57,22 @@
 <!--            android:id="@+id/action_fourthFragment_to_FirstFragment"-->
 <!--            app:destination="@id/FirstFragment" />-->
 <!--    </fragment>-->
+
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.example.tabandroid.ideal_worldcup.FourthFragment"
+        android:label="fragment_fourth"
+        tools:layout="@layout/fragment_fourth" >
+        <action
+            android:id="@+id/action_fourthFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_fourthFragment_to_winnerActivity"
+            app:destination="@id/winnerActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/winnerActivity"
+        android:name="com.example.tabandroid.ideal_worldcup.WinnerActivity"
+        android:label="WinnerActivity" />
+
 </navigation>
