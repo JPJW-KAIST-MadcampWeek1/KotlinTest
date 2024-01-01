@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import com.airbnb.lottie.LottieAnimationView
 import com.example.tabandroid.databinding.FragmentFifthBinding
 //import androidx.navigation.fragment.findNavController
 
@@ -127,6 +126,7 @@ class FifthFragment : Fragment() {
 
 
         binding.quizTitle.visibility = View.VISIBLE
+        binding.quizImage.visibility = View.VISIBLE
 //        binding.codinganim.visibility = View.VISIBLE
         binding.startButton.visibility = View.VISIBLE
         binding.resultText.visibility = View.GONE
@@ -140,13 +140,14 @@ class FifthFragment : Fragment() {
 
     private fun displayQuestions() {
         binding.quizTitle.visibility = View.GONE
-//        binding.codinganim.visibility = View.GONE
+        binding.quizImage.visibility = View.GONE
         binding.startButton.visibility = View.GONE
         binding.questionText.visibility = View.VISIBLE
         binding.FirstButton.visibility = View.VISIBLE
         binding.SecondButton.visibility = View.VISIBLE
         binding.ThirdButton.visibility = View.VISIBLE
         binding.restartButton.visibility = View.GONE
+        // This shows what questions are going to be displayed
         binding.questionText.text = questions[currentQuestionIndex]
         binding.FirstButton.text = options[currentQuestionIndex][0]
         binding.SecondButton.text = options[currentQuestionIndex][1]

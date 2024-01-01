@@ -17,9 +17,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
-        <action
-            android:id="@+id/action_FirstFragment_to_fourthFragment"
-            app:destination="@id/fourthFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_FirstFragment_to_fourthFragment"-->
+<!--            app:destination="@id/fourthFragment" />-->
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
