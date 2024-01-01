@@ -83,7 +83,7 @@ class FifthFragment : Fragment() {
             checkAnswer(2)
         }
         binding.FourthButton.setOnClickListener {
-            checkAnswer(2)
+            checkAnswer(3)
         }
 
         binding.restartButton.setOnClickListener{
