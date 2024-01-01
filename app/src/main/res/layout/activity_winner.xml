@@ -29,7 +29,7 @@
     <FrameLayout
         android:layout_width="400dp"
         android:layout_height="400dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
         android:background="#CCCCCC"
         android:gravity="center">
 
@@ -55,6 +55,21 @@
             android:text="C"
             android:textColor="#FFFFFF"
             android:textSize="48sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="8dp"
+        android:background="#CCCCCC"
+        android:gravity="center">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/restart" />
     </FrameLayout>
 
 

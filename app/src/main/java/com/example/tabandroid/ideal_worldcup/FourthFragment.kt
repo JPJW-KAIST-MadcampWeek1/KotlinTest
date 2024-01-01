@@ -55,12 +55,12 @@ class FourthFragment : Fragment() {
 
     private fun setupRound() {
 
-        if (currentRound == 4) {
-            val winner = candidates.maxByOrNull { it.rank }
-            winner?.let {
-                showWinner(it)
-            }
-        }
+//        if (currentRound == 4) {
+//            val winner = candidates.maxByOrNull { it.rank }
+//            winner?.let {
+//                showWinner(it)
+//            }
+//        }
         // Based on currentRound, decide how to pick candidates
         roundCandidates = when (currentRound) {
             1 -> candidates.filter { it.rank == 0 }.shuffled().take(2)  // Quarterfinals
@@ -170,6 +170,13 @@ class FourthFragment : Fragment() {
         // 안뽑은거 지우는거네 //
 
         CoroutineScope(Dispatchers.Main).launch {
+            if (currentRound == 4) {
+                delay(300)
+                val winner = candidates.maxByOrNull { it.rank }
+                winner?.let {
+                    showWinner(it)
+                }
+            }
             delay(500)
             setupRound() // Setup the next round with delay for animations to complete
         }
