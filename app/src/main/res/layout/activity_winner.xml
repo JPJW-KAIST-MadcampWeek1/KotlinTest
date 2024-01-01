@@ -1,5 +1,6 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,28 +9,26 @@
     android:background="@drawable/background_worldcup">
 
 
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:text="Winner"
-            android:textColor="#00BBD4"
-            android:shadowColor="#000000"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowRadius="10"
-            android:textSize="100dp"
-            android:textStyle="bold"
-            />
-
-
     <!-- First grey box with number 1 -->
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="10"
+        android:text="Winner"
+        android:textColor="#00BBD4"
+        android:textSize="100dp"
+        android:textStyle="bold" />
+
     <FrameLayout
         android:layout_width="400dp"
         android:layout_height="400dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
         android:background="#CCCCCC"
         android:gravity="center">
 
@@ -56,6 +55,23 @@
             android:textColor="#FFFFFF"
             android:textSize="48sp" />
     </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="8dp"
+        android:background="#CCCCCC"
+        android:gravity="center">
+
+
+        <ImageView
+            android:id="@+id/restartButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/restart" />
+    </FrameLayout>
+
 
 
 
