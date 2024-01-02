@@ -230,7 +230,7 @@ class FourthFragment : Fragment() {
 
             // Delay for 2 seconds before moving to the next round
             CoroutineScope(Dispatchers.Main).launch {
-                delay(3000)
+                delay(1800)
                 title.visibility = View.VISIBLE
                 imageViewFirstCandidate.visibility = View.VISIBLE
                 firstFrameLayout.visibility = View.VISIBLE
