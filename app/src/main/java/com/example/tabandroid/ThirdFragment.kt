@@ -2,19 +2,15 @@ package com.example.tabandroid
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import androidx.navigation.fragment.navArgs
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.tabandroid.databinding.FragmentThirdBinding
 
 
@@ -25,7 +21,7 @@ import com.example.tabandroid.databinding.FragmentThirdBinding
  */
 
 
-class ThirdFragment : Fragment() {
+class ThirdFragment : Fragment(), ImageAdapter.OnItemClickListener {
     private var _binding: FragmentThirdBinding? = null
 
     // This property is only valid between onCreateView and
@@ -66,13 +62,20 @@ class ThirdFragment : Fragment() {
 
     }
 
-
+    override fun onItemClick(imageUrl: Uri) {
+        val enlargedImageFragment = EnlargedImageFragment.newInstance(imageUrl)
+        enlargedImageFragment.show(parentFragmentManager, "EnlargedFragment")
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        val args: SecondFragmentArgs by navArgs()
+        imageAdapter.setOnItemClickListener(this)
 
     }
+
+
+
 
     private fun openGalleryForImage() {
         val intent = Intent(Intent.ACTION_PICK)
@@ -90,6 +93,7 @@ class ThirdFragment : Fragment() {
                 imageAdapter.notifyDataSetChanged()
             }
         }
+
     }
 
     override fun onDestroyView() {
@@ -97,4 +101,6 @@ class ThirdFragment : Fragment() {
         _binding = null
         println("Destroy View")
     }
+
+
 }
