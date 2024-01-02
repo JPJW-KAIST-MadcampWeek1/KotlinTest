@@ -23,7 +23,7 @@ android:background="@drawable/background_worldcup">
         android:shadowRadius="10"
         android:text="Programming Language \nIdeal World Cup\nfeat.AI"
         android:textColor="#FFFFFF"
-        android:textSize="23sp" />
+        android:textSize="20sp" />
 
 <TextView
     android:id="@+id/currentround"
@@ -42,8 +42,8 @@ android:background="@drawable/background_worldcup">
 <!-- First grey box with number 1 -->
     <FrameLayout
         android:id="@+id/firstFrameLayout"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:layout_marginBottom="5dp"
         android:background="#CCCCCC"
         android:gravity="center">
@@ -76,8 +76,8 @@ android:background="@drawable/background_worldcup">
 <!-- VS text in the middle -->
 <ImageView
     android:id="@+id/vsImageView"
-    android:layout_width="75dp"
-    android:layout_height="65dp"
+    android:layout_width="60dp"
+    android:layout_height="55dp"
     android:layout_marginBottom="5dp"
     android:src="@drawable/vs" />
 
@@ -85,8 +85,8 @@ android:background="@drawable/background_worldcup">
 <!-- Second grey box with number 2 -->
     <FrameLayout
         android:id="@+id/secondFrameLayout"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:layout_marginBottom="55dp"
         android:background="#CCCCCC"
         android:gravity="center">
