@@ -7,7 +7,7 @@
 - tap 2:
 	- 이미지를 GridView를 통해 보여줍니다. 추가 버튼을 통해 갤러리에서 이미지를 불러올 수 있습니다.
 - tap 3 :
-	- algorithm quiz tab으로 10개의 quiz로 구성하였습니다.
+	- algorithm quiz tab으로 8개의 quiz로 구성하였습니다.
 - tap 4 :
 	- Programming Language World Cup으로   총 8강,4강,결승으로 이루어져 사용자가 선호하는 Programming Language를 선정하도록 구성하였습니다.
 
