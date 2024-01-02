@@ -15,6 +15,8 @@ class StartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
 
+        supportActionBar?.hide()
+
         // Assuming you're using a FragmentManager to handle fragments
         val startButton: ImageView = findViewById(R.id.startButton)
         startButton.setOnClickListener {

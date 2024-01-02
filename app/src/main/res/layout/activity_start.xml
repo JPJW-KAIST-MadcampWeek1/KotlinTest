@@ -1,11 +1,12 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
     android:background="@drawable/background_worldcup">
+
 
     <!-- Quarterfinals text -->
 
@@ -26,13 +27,26 @@
         android:textColor="#FFFFFF"
         android:textSize="35sp" />
 
-    <FrameLayout
-        android:id="@+id/startButtonFrame"
+
+
+    <androidx.cardview.widget.CardView
         android:layout_width="280dp"
         android:layout_height="190dp"
-        android:layout_marginBottom="55dp"
-        android:background="#CCCCCC"
-        android:gravity="center">
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        android:layout_marginBottom="15dp"
+        app:cardCornerRadius="49dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+<!--    <FrameLayout-->
+<!--        android:id="@+id/startButtonFrame"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="190dp"-->
+<!--        android:layout_marginBottom="55dp"-->
+<!--        android:background="#CCCCCC"-->
+<!--        android:gravity="center">-->
 
         <ImageView
             android:id="@+id/startButton"
@@ -41,8 +55,8 @@
             android:scaleType="centerCrop"
             android:src="@drawable/start" />
 
+    </androidx.cardview.widget.CardView>
 
-    </FrameLayout>
 
 <!--    <Button-->
 <!--        android:id="@+id/startButton"-->
