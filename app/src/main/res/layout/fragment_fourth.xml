@@ -1,10 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:gravity="center"
-android:padding="16dp"
-android:background="@drawable/background_worldcup">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/background_worldcup">
 
 <!-- Quarterfinals text -->
 
@@ -23,7 +24,7 @@ android:background="@drawable/background_worldcup">
         android:shadowRadius="10"
         android:text="Programming Language \nIdeal World Cup\nfeat.AI"
         android:textColor="#FFFFFF"
-        android:textSize="23sp" />
+        android:textSize="20sp" />
 
 <TextView
     android:id="@+id/currentround"
@@ -40,13 +41,24 @@ android:background="@drawable/background_worldcup">
     android:textSize="18sp" />
 
 <!-- First grey box with number 1 -->
-    <FrameLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/firstFrameLayout"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:layout_marginBottom="5dp"
-        android:background="#CCCCCC"
-        android:gravity="center">
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        app:cardCornerRadius="15dp"
+    app:cardElevation="0dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    android:clipChildren="true"
+    android:clipToPadding="true">
+<!--    <FrameLayout-->
+<!--        android:id="@+id/firstFrameLayout"-->
+<!--        android:layout_width="170dp"-->
+<!--        android:layout_height="170dp"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        android:background="#CCCCCC"-->
+<!--        android:gravity="center"-->
+<!--        >-->
 
 
         <ImageView
@@ -71,25 +83,29 @@ android:background="@drawable/background_worldcup">
             android:text="C"
             android:textColor="#FFFFFF"
             android:textSize="24sp" />
-    </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
 
 <!-- VS text in the middle -->
 <ImageView
     android:id="@+id/vsImageView"
-    android:layout_width="75dp"
-    android:layout_height="65dp"
+    android:layout_width="60dp"
+    android:layout_height="55dp"
     android:layout_marginBottom="5dp"
     android:src="@drawable/vs" />
 
 
 <!-- Second grey box with number 2 -->
-    <FrameLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/secondFrameLayout"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:layout_marginBottom="55dp"
-        android:background="#CCCCCC"
-        android:gravity="center">
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        android:clipChildren="true"
+        android:clipToPadding="true">
 
         <ImageView
             android:id="@+id/imageViewSecondCandidate"
@@ -113,7 +129,7 @@ android:background="@drawable/background_worldcup">
             android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
-    </FrameLayout>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
 

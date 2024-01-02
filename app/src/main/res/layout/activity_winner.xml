@@ -1,5 +1,5 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,12 +25,21 @@
         android:textSize="100dp"
         android:textStyle="bold" />
 
-    <FrameLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="380dp"
         android:layout_height="380dp"
-        android:layout_marginBottom="20dp"
-        android:background="#CCCCCC"
-        android:gravity="center">
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        android:layout_marginBottom="15dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+<!--        android:layout_width="380dp"-->
+<!--        android:layout_height="380dp"-->
+<!--        android:layout_marginBottom="15dp"-->
+<!--        android:background="#CCCCCC"-->
+<!--        android:gravity="center">-->
 
 
         <ImageView
@@ -54,15 +63,18 @@
             android:text="C"
             android:textColor="#FFFFFF"
             android:textSize="48sp" />
-    </FrameLayout>
+</androidx.cardview.widget.CardView>
 
-    <FrameLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="290dp"
-        android:layout_height="70dp"
+        android:layout_height="90dp"
+        android:clipChildren="true"
+        android:clipToPadding="true"
         android:layout_marginBottom="35dp"
-        android:background="#CCCCCC"
-        android:gravity="center">
-
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
 
         <ImageView
             android:id="@+id/restartButton"
@@ -70,7 +82,29 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/restart" />
-    </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+
+<!--    <FrameLayout-->
+<!--        android:layout_width="290dp"-->
+<!--        android:layout_height="70dp"-->
+<!--        android:layout_marginBottom="35dp"-->
+<!--        android:background="#CCCCCC"-->
+<!--        android:gravity="center"-->
+<!--        android:padding="2dp"-->
+<!--    android:clipChildren="true"-->
+<!--    android:clipToPadding="true"-->
+<!--        >-->
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/restartButton"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/restart"-->
+<!--            android:background="@drawable/rounded_corners"/>-->
+<!--    </FrameLayout>-->
 
 
 

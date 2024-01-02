@@ -157,7 +157,10 @@ class FourthFragment : Fragment() {
             // If there are two or less candidates left, it means we're done with this round
 
             currentRound = 2
-            showCurrentRoundTitle()
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(500)
+                showCurrentRoundTitle()
+            }
 //            candidates.forEach { it.rank = currentRound } // Prepare all remaining candidates for the next round
         }
 
@@ -166,7 +169,10 @@ class FourthFragment : Fragment() {
         if (candidates.count { it.rank == 2 } == 2) {
             // If there are two or less candidates left, it means we're done with this round
             currentRound = 3
-            showCurrentRoundTitle()
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(500)
+                showCurrentRoundTitle()
+            }
 //            candidates.forEach { it.rank = currentRound } // Prepare all remaining candidates for the next round
         }
 
@@ -214,7 +220,7 @@ class FourthFragment : Fragment() {
             secondFrameLayout.visibility = View.INVISIBLE
 
             currentround.apply {
-                textSize = 50f // Set a larger text size
+                textSize = 40f // Set a larger text size
 //                visibility = View.VISIBLE
                 alpha = 0f
                 animate().alpha(1f).setDuration(200).start() // Fade in animation
@@ -224,7 +230,7 @@ class FourthFragment : Fragment() {
 
             // Delay for 2 seconds before moving to the next round
             CoroutineScope(Dispatchers.Main).launch {
-                delay(3000)
+                delay(1800)
                 title.visibility = View.VISIBLE
                 imageViewFirstCandidate.visibility = View.VISIBLE
                 firstFrameLayout.visibility = View.VISIBLE

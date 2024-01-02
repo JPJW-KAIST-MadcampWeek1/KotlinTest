@@ -1,5 +1,6 @@
 package com.example.tabandroid
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,8 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tabandroid.ideal_worldcup.FourthFragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.tabandroid.ideal_worldcup.StartActivity
 
-var token = 0
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -22,15 +24,23 @@ class MainActivity : AppCompatActivity() {
     private val thirdFragment = ThirdFragment()
     private val fourthFragment = FourthFragment()
     private val fifthFragment = FifthFragment()
+    private var hasStartBeenShown = false
+
+
 
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 //    setContentView(R.layout.activity_main)
     binding = ActivityMainBinding.inflate(layoutInflater)
 //    setContentView(binding.root)
-    setContentView(R.layout.activity_main)
-    token++
+    setContentView(binding.root)
 
+    val fragmentToLoad = intent.getStringExtra("loadFragment")
+    if (fragmentToLoad == "FourthFragment") {
+        loadFragment(FourthFragment())
+    } else {
+        // If no specific command, load the default fragment or perform other actions
+    }
 
 
     val temp = intent.getStringExtra("finished")
@@ -56,6 +66,16 @@ override fun onCreate(savedInstanceState: Bundle?) {
             }
             R.id.worldcup -> {
                 loadFragment(fourthFragment)
+                if (!hasStartBeenShown) {
+                    // If the start activity hasn't been shown yet, show it and set the flag
+                    val startIntent = Intent(this, StartActivity::class.java)
+                    startActivity(startIntent)
+                    hasStartBeenShown = true
+                } else {
+                    // If it's already been shown, load the FourthFragment
+                    loadFragment(FourthFragment())
+                }
+
                 true
             }
             else -> {
@@ -88,5 +108,13 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
         currentFragment = fragment
     }
+
+
+    // Helper function to convert dp to pixels
+    private fun dpToPx(dp: Int): Int {
+        val density = resources.displayMetrics.density
+        return (dp * density).toInt()
+    }
+
 
 }
