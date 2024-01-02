@@ -39,6 +39,7 @@ class SecondFragment : Fragment() {
 
 
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        //여기서 화면 연결
 
 
         return binding.root
@@ -75,23 +76,7 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val args: SecondFragmentArgs by navArgs()
-//
-//        val count = args.myArg
-//        val countText = getString(R.string.random_heading, count)
-//        view.findViewById<TextView>(R.id.textview_header).text = countText
-//        val random = java.util.Random()
-//        var randomNumber = 0
-//        if (count > 0) {
-//            randomNumber = random.nextInt(count + 1)
-//        }
-//        view.findViewById<TextView>(R.id.textview_random).text = randomNumber.toString()
-//
-//        binding.buttonSecond.setOnClickListener {
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-//        }
-//        if (activity is MainActivity) {
-//            (activity as MainActivity).setUpRecyclerView_second()
+
 //        }
     }
 

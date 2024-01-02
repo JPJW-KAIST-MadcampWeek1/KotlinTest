@@ -19,16 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var bottomNav : BottomNavigationView
 
-//    private val questions = arrayOf("What team does Shohei Ohtani play for?",
-//        "What is Jaewon's MBTI?", "What is Jinsuk's dream car?")
-//
-//    private val options = arrayOf(arrayOf("New York Yankees", "Los Angeles Angels", "Los Angeles Dodgers"),
-//        arrayOf("ENTP", "ESFP", "ENFP"), arrayOf("Genesis G90", "BMW i7", "Porsche Taycan"))
-//
-//    private val correctAnswers = arrayOf(2, 1, 2)
-//
-//    private var currentQuestionIndex = 0
-//    private var score = 0
 
 
 

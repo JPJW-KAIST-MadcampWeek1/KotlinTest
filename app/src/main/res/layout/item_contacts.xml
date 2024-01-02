@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_effect"
+    android:clickable="true"
+    android:focusable="true"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,8 +23,8 @@
 
         <ImageView
             android:id="@+id/iv_profile"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
@@ -37,6 +41,7 @@
             android:layout_marginTop="20dp"
             android:text="attention"
             android:textColor="#000000"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/iv_profile"
             app:layout_constraintTop_toTopOf="@+id/iv_profile" />
@@ -48,6 +53,7 @@
             android:layout_marginStart="36dp"
             android:text="5"
             android:textColor="#040404"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/tv_name"
             app:layout_constraintStart_toEndOf="@+id/tv_name"
