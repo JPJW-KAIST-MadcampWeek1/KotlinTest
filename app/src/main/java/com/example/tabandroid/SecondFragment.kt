@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tabandroid.databinding.FragmentSecondBinding
 import org.json.JSONObject
 import java.io.BufferedReader
+import java.io.File
+import java.io.FileOutputStream
 import java.io.FileReader
 
 /**
@@ -49,27 +51,60 @@ class SecondFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-//        profileList.clear()
+        contactList.clear()
 
-        val assets = resources.assets
-        val inputStream = assets.open("contacts.json")
-        val jsonString = inputStream.bufferedReader().use{ it.readText()}
+        val fileName = "contacts.json"
+        val file = File(requireContext().filesDir, fileName)
+
+        if (!file.exists()) {
+            // Copy the file from assets to internal storage for future use
+            requireContext().assets.open(fileName).use { inputStream ->
+                FileOutputStream(file).use { outputStream ->
+                    inputStream.copyTo(outputStream)
+                }
+            }
+        }
+
+        // Now read from the file in internal storage
+        val jsonString = file.readText()
 
         val jObject = JSONObject(jsonString)
         val jArray = jObject.getJSONArray("contacts")
 
-
-        for(i in 0 until jArray.length()) {
+        for (i in 0 until jArray.length()) {
             val obj = jArray.getJSONObject(i)
             val name = obj.getString("name")
             val number = obj.getString("number")
-            contactList.add(Contacts( name, number))
+            contactList.add(Contacts(name, number))
         }
 
+        // Setup RecyclerView with the contact list
         binding.rvContact.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
         binding.rvContact.setHasFixedSize(true)
         binding.rvContact.adapter = ContactAdapter(contactList)
-        ContactAdapter(contactList).notifyDataSetChanged()
+//        super.onResume()
+//
+////        profileList.clear()
+//
+//        val assets = resources.assets
+//        val inputStream = assets.open("contacts.json")
+//        val jsonString = inputStream.bufferedReader().use{ it.readText()}
+//
+//        val jObject = JSONObject(jsonString)
+//        val jArray = jObject.getJSONArray("contacts")
+//
+//
+//        for(i in 0 until jArray.length()) {
+//            val obj = jArray.getJSONObject(i)
+//            val name = obj.getString("name")
+//            val number = obj.getString("number")
+//            contactList.add(Contacts( name, number))
+//        }
+//
+//        binding.rvContact.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+//        binding.rvContact.setHasFixedSize(true)
+//        binding.rvContact.adapter = ContactAdapter(contactList)
+//        ContactAdapter(contactList).notifyDataSetChanged()
 
 
     }

@@ -24,6 +24,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ideal_worldcup.StartActivity"
+            android:exported="true">
+            <!-- If this activity is the entry point of your app, include the MAIN action and LAUNCHER category -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -43,6 +53,7 @@
             <!-- If this activity is the entry point of the app, add the LAUNCHER intent filter -->
             <!-- Otherwise, just declare the activity without any intent filters -->
         </activity>
+
 
         <meta-data
             android:name="preloaded_fonts"

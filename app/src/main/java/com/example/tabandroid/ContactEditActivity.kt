@@ -16,6 +16,7 @@ class ContactEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_edit)
+        setTitle("EditContact")
 
         val btn_editComplete = findViewById<ImageButton>(R.id.btn_editComplete)
         val userName = findViewById<EditText>(R.id.tv_editName)
