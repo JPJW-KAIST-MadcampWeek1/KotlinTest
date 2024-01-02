@@ -29,6 +29,8 @@ class ThirdFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var imageAdapter: ImageAdapter
+    private val imagesList: MutableList<Uri> = mutableListOf()
 
     companion object {
         val IMAGE_REQUEST_CODE = 100
@@ -44,8 +46,17 @@ class ThirdFragment : Fragment() {
 
     ): View? {
         _binding = FragmentThirdBinding.inflate(inflater, container, false)
-        displayRecyclerView()
+//        displayRecyclerView()
+
+        // Set up RecycelrView
+        imageAdapter = ImageAdapter(imagesList)
+        binding.imagesRecyclerView.apply {
+            layoutManager = GridLayoutManager(requireContext(), 3)
+            adapter = imageAdapter
+        }
         binding.newimage.setOnClickListener { openGalleryForImage() }
+
+
         return binding.root
 
     }
@@ -76,54 +87,54 @@ class ThirdFragment : Fragment() {
             val selectedImageUri: Uri?= data?.data
 
             selectedImageUri?.let {
-                uri ->
-                binding.testImage.setImageURI(uri)
+               imagesList.add(it)
+                imageAdapter.notifyDataSetChanged()
             }
         }
     }
 
-    private fun displayRecyclerView() {
-
-        val images = listOf<Image>(
-            Image("Images 1", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 2", "https://img.freepik.com/free-photo/gray-kitty-with-monochrome-wall-her_23-2148955126.jpg?size=626&ext=jpg"),
-            Image("Images 3", "https://img.freepik.com/free-photo/domestic-long-haired-cat-lights-against-black-space_181624-24890.jpg?size=626&ext=jpg"),
-            Image("Images 4", "https://img.freepik.com/free-photo/vertical-closeup-shot-fat-white-cat-looking-right-dark_181624-41107.jpg?size=626&ext=jpg"),
-            Image("Images 5", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 6", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 7", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 8", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 9", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 10", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 11", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 12", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 13", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 14", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 15", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),            Image("Images 4", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 16", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 17", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 18", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 19", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-            Image("Images 20", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
-
-            )
-
-
-
-
-        val recyclerView = binding.imagesRecyclerView
-        val spanCount = 3
-        val verticalSpacing = dpToPx(4) // Reduce the vertical spacing here
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), spanCount)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.addItemDecoration(GridSpacingItemDecoration(spanCount, verticalSpacing, true)) // Adjust the spacing by changing dpToPx value
-        recyclerView.adapter = ImageAdapter(requireContext(), images)
-    }
-    // Helper function to convert dp to pixels
-    private fun dpToPx(dp: Int): Int {
-        val density = resources.displayMetrics.density
-        return (dp * density).toInt()
-    }
+//    private fun displayRecyclerView() {
+//
+//        val images = listOf<Image>(
+//            Image("Images 1", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 2", "https://img.freepik.com/free-photo/gray-kitty-with-monochrome-wall-her_23-2148955126.jpg?size=626&ext=jpg"),
+//            Image("Images 3", "https://img.freepik.com/free-photo/domestic-long-haired-cat-lights-against-black-space_181624-24890.jpg?size=626&ext=jpg"),
+//            Image("Images 4", "https://img.freepik.com/free-photo/vertical-closeup-shot-fat-white-cat-looking-right-dark_181624-41107.jpg?size=626&ext=jpg"),
+//            Image("Images 5", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 6", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 7", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 8", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 9", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 10", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 11", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 12", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 13", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 14", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 15", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),            Image("Images 4", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 16", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 17", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 18", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 19", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//            Image("Images 20", "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg"),
+//
+//            )
+//
+//
+//
+//
+//        val recyclerView = binding.imagesRecyclerView
+//        val spanCount = 3
+//        val verticalSpacing = dpToPx(4) // Reduce the vertical spacing here
+//        recyclerView.layoutManager = GridLayoutManager(requireContext(), spanCount)
+//        recyclerView.setHasFixedSize(true)
+//        recyclerView.addItemDecoration(GridSpacingItemDecoration(spanCount, verticalSpacing, true)) // Adjust the spacing by changing dpToPx value
+//        recyclerView.adapter = ImageAdapter(requireContext(), images)
+//    }
+//    // Helper function to convert dp to pixels
+//    private fun dpToPx(dp: Int): Int {
+//        val density = resources.displayMetrics.density
+//        return (dp * density).toInt()
+//    }
 
 
     override fun onDestroyView() {
