@@ -55,6 +55,7 @@ targetSdk 33
 ```
     implementation "com.airbnb.android:lottie-compose:6.0.0"
 ```
+![image](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/68769481/7cba535b-1e46-4788-be28-d97ad27e23b9)
 
 ###  2. 메인화면
 ![스크린샷 2024-01-03 오후 1 52 58](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/149568715/53aa3992-3855-4baa-944c-3af796abbea0)
@@ -88,6 +89,7 @@ targetSdk 33
                ├── GridSpacingItemDecoration.kt
                ├── ImageAdapter.kt
 ```
+![image](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/68769481/ab6e3079-5c36-4b9f-afde-c9b4c6232215)
 ###  5. 알고리즘 퀴즈
 세 번째 탭은 알고리즘 퀴즈를 만들어봤어요! 이 퀴즈는 저희가 학교 자료구조 및 알고리즘 과목에서 배운 지식을 활용해 총 8문제로 이루어져 있어요. 이 퀴즈를 객관식으로 구성해 알고리즘 지식을 간단히 테스트할 수 있습니다. 퀴즈 시작 화면에서도 coding man 애니메이션을 추가하고 문제를 풀 때마다 즉시 정답 여부를 확인할 수 있어요. 결과 화면에서는 총 점수를 확인할 수 있고, 재시작 버튼을 누르면 다시 시작할 수 있어요. 화면 이동은 GONE/VISIBLE을 활용해 동적으로 구성했어요. 문제 출처는 (https://onlineexammaker.com/kb/30-algorithms-quiz-questions-and-answers/ , https://www.sanfoundry.com/programming-questions-answers/#google_vignette )입니다. 자세한 내용은 아래 파일들을 참고해주세요.
 ```
@@ -108,7 +110,9 @@ targetSdk 33
             ├── example
                ├── FifthFragment.kt
 ```
-
+![image](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/68769481/2403c283-8207-4f53-8a64-56fad8a96c15)
+![image](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/68769481/7308898c-0e2e-4384-93d0-669ffc38711e)
+![image](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/68769481/d425fb66-1985-45b2-8b24-87067a07f846)
 
 ###  6. 프로그래밍 언어 이상형 월드컵
 ![스크린샷 2024-01-03 오후 1 34 12](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/149568715/5b7ef1a7-76c5-408e-ad65-180b1b0fc739)
