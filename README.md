@@ -156,5 +156,5 @@ targetSdk 33
 - 결승전이 끝나면 우승한 언어의 정보들과 함께 Intent를 통해 WinnerActivity로 이동합니다.
 - WinnerActivity에서 Restart 버튼을 클릭하면 Intent를 통해  이상형 월드컵을 진행할 수 있는 FourthFragment로 이동합니다. 자세한 정보는 main/java/WinnerActivity를 참고하세요.
 
-
+APK Link: https://drive.google.com/file/d/1GEjw72UveTlGgtyKz1iJNsAtwNi9iklC/view?usp=sharing
 
