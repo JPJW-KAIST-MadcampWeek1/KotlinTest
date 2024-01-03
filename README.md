@@ -44,8 +44,11 @@ targetSdk 33
 ###  1. 로딩창
 
 ###  2. 메인화면
+![스크린샷 2024-01-03 오후 1 52 58](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/149568715/53aa3992-3855-4baa-944c-3af796abbea0)
 
 ###  3. 연락처
+![스크린샷 2024-01-03 오후 1 15 26](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/149568715/385b64de-1ebe-44b3-9772-96a90a454962)
+![스크린샷 2024-01-03 오후 1 28 16](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/149568715/41e7dd66-1cfb-492b-9c49-d757858c5370)
 
 ###  4. 갤러리
 
