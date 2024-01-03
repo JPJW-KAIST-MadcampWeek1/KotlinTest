@@ -42,6 +42,19 @@ targetSdk 33
 
 
 ###  1. 로딩창
+저희 앱의 테마에 맞게 코딩하는 사람을 로딩 화면 애니메이션으로 사용했어요. 이를 위해 Lottie 라이브러리를 사용했습니다. 만약 코드가 궁금하시면 activity_splash.xml에서 확인하시면 됩니다! 하지만 최신 버전이 저희 프로젝트와 호환되지 않았기 때문에 Lottie 버전을 6.0.0으로 낮춰서 진행했습니다.
+
+```
+├── app
+        |__ src
+              |__ main
+                      |__ res
+         ├── layout
+            ├── activity_splash.xml
+```
+```
+    implementation "com.airbnb.android:lottie-compose:6.0.0"
+```
 
 ###  2. 메인화면
 ![스크린샷 2024-01-03 오후 1 52 58](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/149568715/53aa3992-3855-4baa-944c-3af796abbea0)
@@ -51,8 +64,51 @@ targetSdk 33
 ![스크린샷 2024-01-03 오후 1 28 16](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/149568715/41e7dd66-1cfb-492b-9c49-d757858c5370)
 
 ###  4. 갤러리
-
+두 번째 탭은 사진 갤러리로 구현했습니다. Grid layout과 RecyclerView를 이용했고 이미지를 원활하게 불러오기 위해 Glide 라이브러리를 사용했습니다. 갤러리에 있는 기존 이미지들은 drawable 폴더애 저장돼 있고 '+' 버튼을 눌러 핸드폰 갤러리와 연동하여 사진을 선택해서 추가할 수 있습니다. 각 사진을 클릭할 경우 선택된 사진을 더 자세하게 볼 수 있습니다. 자세한 내용은 아래 파일들을 참고해주세요.
+```
+├── app
+        |__ src
+              |__ main
+                      |__ res
+         ├── layout
+            ├── fragment_third.xml
+            ├── activity_image_display.xml
+            ├── items_image.xml
+```
+```
+├── app
+        |__ src
+              |__ main
+                      |__ java
+         ├── com
+            ├── example
+               ├── ThirdFragment.kt
+               ├── ViewModel.kt
+               ├── ImageDisplayActivity.kt
+               ├── GridSpacingItemDecoration.kt
+               ├── ImageAdapter.kt
+```
 ###  5. 알고리즘 퀴즈
+세 번째 탭은 알고리즘 퀴즈를 만들어봤어요! 이 퀴즈는 저희가 학교 자료구조 및 알고리즘 과목에서 배운 지식을 활용해 총 8문제로 이루어져 있어요. 이 퀴즈를 객관식으로 구성해 알고리즘 지식을 간단히 테스트할 수 있습니다. 퀴즈 시작 화면에서도 coding man 애니메이션을 추가하고 문제를 풀 때마다 즉시 정답 여부를 확인할 수 있어요. 결과 화면에서는 총 점수를 확인할 수 있고, 재시작 버튼을 누르면 다시 시작할 수 있어요. 화면 이동은 GONE/VISIBLE을 활용해 동적으로 구성했어요. 문제 출처는 (https://onlineexammaker.com/kb/30-algorithms-quiz-questions-and-answers/ , https://www.sanfoundry.com/programming-questions-answers/#google_vignette )입니다. 자세한 내용은 아래 파일들을 참고해주세요.
+```
+├── app
+        |__ src
+              |__ main
+                      |__ res
+         ├── layout
+            ├── fragment_fifth.xml   
+               
+```
+```
+├── app
+        |__ src
+              |__ main
+                      |__ java
+         ├── com
+            ├── example
+               ├── FifthFragment.kt
+```
+
 
 ###  6. 프로그래밍 언어 이상형 월드컵
 ![스크린샷 2024-01-03 오후 1 34 12](https://github.com/JPJW-KAIST-MadcampWeek1/KotlinTest/assets/149568715/5b7ef1a7-76c5-408e-ad65-180b1b0fc739)
