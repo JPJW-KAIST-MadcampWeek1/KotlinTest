@@ -48,7 +48,7 @@ class FourthFragment : Fragment() {
             ProgrammingLanguage("Kotlin", R.drawable.kotlin),
             ProgrammingLanguage("Python", R.drawable.python),
             ProgrammingLanguage("Flutter", R.drawable.flutter),
-            ProgrammingLanguage("ReactNative", R.drawable.reactnative),
+            ProgrammingLanguage("React\nNative", R.drawable.reactnative),
             ProgrammingLanguage("Swift", R.drawable.swift),
             ProgrammingLanguage("JavaScript", R.drawable.javascript),
             // ... add all eight candidates
